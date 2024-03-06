@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="urn:DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="urn:DefaultNamespace" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="GETUSERPASSWORDResponse">
+    <wsdl:part name="GETUSERPASSWORDReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GETUSERPASSWORDRequest">
+    <wsdl:part name="USERKEY" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GETUSERINFOResponse">
+    <wsdl:part name="GETUSERINFOReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GETUSERINFORequest">
+    <wsdl:part name="EMPNO" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="wsDominoAdminPortType">
+    <wsdl:operation name="GETUSERPASSWORD" parameterOrder="USERKEY">
+      <wsdl:input name="GETUSERPASSWORDRequest" message="impl:GETUSERPASSWORDRequest" />
+      <wsdl:output name="GETUSERPASSWORDResponse" message="impl:GETUSERPASSWORDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GETUSERINFO" parameterOrder="EMPNO">
+      <wsdl:input name="GETUSERINFORequest" message="impl:GETUSERINFORequest" />
+      <wsdl:output name="GETUSERINFOResponse" message="impl:GETUSERINFOResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsDominoAdminPortSoapBinding" type="impl:wsDominoAdminPortType">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="GETUSERPASSWORD">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GETUSERPASSWORDRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GETUSERPASSWORDResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETUSERINFO">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GETUSERINFORequest">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GETUSERINFOResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsDominoAdminElement">
+    <wsdl:port name="wsDominoAdminPort" binding="impl:wsDominoAdminPortSoapBinding">
+      <wsdlsoap:address location="http://gw.taeyoung.co.kr:80/pilot/webservice.nsf/wsdominoadmin?OpenWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

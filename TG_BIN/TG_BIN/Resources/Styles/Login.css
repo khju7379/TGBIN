@@ -1,0 +1,89 @@
+﻿* {
+	margin:0;
+	padding:0;
+   font-family: "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif; font-size: 12px; color: #505050; line-height: 18px;
+}
+input {width: 148px; height: 21px; background: #FFFFFF; border: 1px solid #C8C8C8; .margin-top: -1px;}
+a {text-decoration: none; cursor: pointer;}
+html, body {
+	width: 100%;
+	height: 100%;
+	min-width: 550px;
+   min-height: 430px;
+   _width: expression(document.documentElement.clientWidth < 548 ? '550px' : '');
+   _height: expression(document.documentElement.clientHeight < 428 ? '430px' : '');
+   background: #E6F0FF url('/CRM/Resources/Images/Layouts/login_bg.jpg'); background-position: 50% 50%; background-repeat: no-repeat;
+}
+#login {
+   position: relative;
+   top: 50%;
+   left: 50%;
+   padding-top: 13px;
+   margin-left: -50px;
+   width: 270px;
+   height: 53px;
+}
+#login dl 
+{
+	clear: both;
+	.clear: none;
+	_float: left;
+	.overflow: hidden;
+}
+#login dl dt {
+	float: left;
+	width: 60px;
+   line-height: 25px;
+   font-weight: bold;
+}
+#login dl dd {
+	float: left;	
+   padding-bottom: 7px;
+}
+#login a.btn_login,
+#login a:hover.btn_login {
+   position: absolute;
+   z-index: 1;
+   top: 13px;
+   right: 0px;
+   width: 51px;
+   height: 51px;
+   font-size: 12px;
+   color: #FFFFFF;
+   line-height: 51px;
+   text-align: center;
+   font-weight: bold;
+   border: 1px solid #416996;
+   display: block;
+   overflow: hidden;
+}
+#login a.btn_login {
+   filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#7DA0D7', EndColorStr='#466EA0');
+   background: #7DA0D7; 
+   background: -moz-linear-gradient(top, #7DA0D7, #466EA0); 
+   background: -webkit-gradient(linear, left top, left bottom, from(#7DA0D7), to(#466EA0)); 
+}
+#login a:hover.btn_login {
+   filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#466EA0', EndColorStr='#7DA0D7');
+   background: #466EA0; 
+   background: -moz-linear-gradient(top, #466EA0, #7DA0D7); 
+   background: -webkit-gradient(linear, left top, left bottom, from(#466EA0), to(#7DA0D7)); 
+}
+
+#info {
+   position: relative;
+   top: 50%;
+   left: 50%;
+   padding-top: 28px;
+   margin-left: -20px;
+   width: 250px;
+   font-size: 11px;
+}
+#info span {
+	font-size: 11px;
+	color: #466EA0;
+	font-weight: bold;
+}
+
+
+

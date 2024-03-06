@@ -1,0 +1,173 @@
+﻿#PrintArea
+{
+	width:660px;
+}
+#PrintAreaV
+{
+	width:850px;
+}
+
+#PrintAreaS
+{
+	width:460px;
+}
+.con_table 
+{
+    border-collapse: collapse;
+    font : 11px/13px arial, tahoma, helvetica, sans-serif;
+    border-top: 1px solid #85A5D7;
+    border-bottom: 1px solid #DFE6EE;
+	width: 100%;
+}
+.con_table th
+{
+    padding: 3px;
+    text-align: center;
+    background: #f9f9f9;
+    border: 1px solid #DFE6EE;
+    height:22px;
+    font-weight:500;
+}
+.con_table td
+{
+    padding: 3px;
+    border: 1px solid #DFE6EE;
+	height:22px;
+}
+
+.con_table2 
+{
+    border-collapse: collapse;
+    font : 11px/13px arial, tahoma, helvetica, sans-serif;
+    border-top: 1px solid #85A5D7;
+    border-bottom: 1px solid #DFE6EE;
+
+}
+.con_table2_th
+{
+    padding: 3px;
+    text-align: center;
+    background: #f9f9f9;
+    border: 1px solid #DFE6EE;
+    height:22px;
+}
+.con_table2_td
+{
+    padding: 3px;
+    border: 1px solid #DFE6EE;
+	height:22px;
+}
+/* 아이콘(Ext.NET Icon은 사용되는 컨트롤이 있는 경우만 나옴)  */
+.icon-arrowrefresh
+{
+	background: url(/Resources/images/Icons/refresh.png) no-repeat 0 0 !important;
+}
+.icon-quickmenu
+{
+	background: url(/Resources/images/Icons/quickmenu.png) no-repeat 0 0 !important;
+}
+#topmenu {
+	position: relative;
+	height: 40px;
+	font-size: 15px;
+	line-height: 40px;
+	font-weight: bold;
+}
+/* 프로그래스바 */
+#progresslayer
+{
+    display:none;
+    height: 24px;
+    margin-top: 10px;
+    padding: 5px;
+    background: #F5F5F5;
+    position:absolute;
+    top:300px;
+    left:200px;
+}
+#progresslayer .bar_bx
+{
+    width: 400px;
+    height: 20px;
+    padding: 1px;
+    margin: 0px 0px 0px 0px;
+    border: 1px solid #B4B4B4;
+    background: #FFFFFF;
+}
+#progresslayer .bar_bx .bar
+{
+    height: 20px;
+    width:0px;
+    font-size: 0px;
+    line-height: 0px;
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#FFAF46', EndColorStr='#FF6D34');
+    background: #FFAF46;
+    background: -moz-linear-gradient(top, #FFAF46, #FF6D34);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFAF46), to(#FF6D34));
+}
+#Msg_box_bg
+{
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333333;
+    opacity: 0.3;
+    filter: Alpha(Opacity=30);
+    z-index: 2000;
+    display: none;
+}
+/*그리드 Row Merge*/
+.grid-row-span .x-grid-row {
+    border-bottom: 0;
+    height: 22px !important;
+    line-height: 22px !important;
+}
+.grid-row-span .x-grid-col {
+    border-bottom: 1px solid #ededed;
+}
+.grid-row-span .row-span {
+    border:0;
+}
+.grid-row-span .row-span-first .x-grid-cell-inner 
+{
+    position: absolute;
+}
+.grid-row-span .row-span-during0 {
+    background-color:#FFFFFF;
+}
+.grid-row-span .row-span-during1 {
+    background-color:#FAFAFA;
+}
+.grid-row-span .row-span-last {
+    border-bottom: 1px solid #ededed;
+}
+
+/*그리드 Row Merge*/
+
+.autoFloatRender
+{
+    float:left;
+    display:inline;
+}
+.editableGridItem {
+    background-image: none;
+    background-color: Yellow;
+}
+
+/*텍스트필드 IME MODE*/
+.text_alphabet
+{
+    ime-mode: inactive;
+}
+.text_korean
+{
+    ime-mode: active;
+}
+
+.pnlAutoOverflow
+{
+    float:left;
+    display:inline;
+}

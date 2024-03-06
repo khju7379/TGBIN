@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64AF60F5-312F-43ED-8428-51F932B1DD54}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TG_BIN</RootNamespace>
+    <AssemblyName>TG_BIN</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiveReports.Document, Version=6.2.3681.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Common Files\GrapeCity\ActiveReports 6\ActiveReports.Document.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.HtmlExport, Version=6.2.3681.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Common Files\GrapeCity\ActiveReports 6\ActiveReports.HtmlExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.PdfExport, Version=6.2.3681.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Common Files\GrapeCity\ActiveReports 6\ActiveReports.PdfExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.TiffExport, Version=6.2.3681.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Common Files\GrapeCity\ActiveReports 6\ActiveReports.TiffExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.Viewer6, Version=6.2.3681.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Common Files\GrapeCity\ActiveReports 6\ActiveReports.Viewer6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.Web, Version=6.2.3681.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Common Files\GrapeCity\ActiveReports 6\ActiveReports.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports6, Version=6.2.3681.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Common Files\GrapeCity\ActiveReports 6\ActiveReports6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ext.Net">
+      <HintPath>..\PSM.Common\Assembly\Ext.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ext.Net.Utilities">
+      <HintPath>..\PSM.Common\Assembly\Ext.Net.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ezSMSComponent">
+      <HintPath>..\PSM.Common\Assembly\Interop.ezSMSComponent.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PSM.Common\Assembly\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\PSM.Common\Assembly\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PSM.Common">
+      <HintPath>..\PSM.Common\bin\Debug\PSM.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Transformer.NET">
+      <HintPath>..\PSM.Common\Assembly\Transformer.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="LoginByDesigner\Css\Default.css" />
+    <Content Include="LoginByDesigner\Css\Import.css" />
+    <Content Include="LoginByDesigner\Css\login.css" />
+    <Content Include="LoginByDesigner\Images\login_bg.jpg" />
+    <Content Include="LoginByDesigner\Images\login_bt.png" />
+    <Content Include="LoginByDesigner\Images\login_bx_bg.png" />
+    <Content Include="LoginByDesigner\Images\login_bx_title.png" />
+    <Content Include="LoginByDesigner\Images\login_copyright.gif" />
+    <Content Include="LoginByDesigner\Images\login_icon_01.png" />
+    <Content Include="LoginByDesigner\Images\login_icon_02.png" />
+    <Content Include="LoginByDesigner\Images\login_logo.png" />
+    <Content Include="LoginByDesigner\Images\login_top_bg.gif" />
+    <Content Include="Resources\Font\Daum_Regular.svg" />
+    <Content Include="Resources\Font\Daum_SemiBold.svg" />
+    <Content Include="Resources\Images\Buttons\bt_0101.png" />
+    <Content Include="Resources\Images\Buttons\bt_0102.png" />
+    <Content Include="Resources\Images\Buttons\bt_0102_on.png" />
+    <Content Include="Resources\Images\Buttons\bt_0103.png" />
+    <Content Include="Resources\Images\Buttons\bt_0104_off.png" />
+    <Content Include="Resources\Images\Ext\7z.gif" />
+    <Content Include="Resources\Images\Ext\alz.gif" />
+    <Content Include="Resources\Images\Ext\AppMove.png" />
+    <Content Include="Resources\Images\Ext\avi.gif" />
+    <Content Include="Resources\Images\Ext\bmp.gif" />
+    <Content Include="Resources\Images\Ext\cab.gif" />
+    <Content Include="Resources\Images\Ext\common.gif" />
+    <Content Include="Resources\Images\Ext\dll.gif" />
+    <Content Include="Resources\Images\Ext\doc.gif" />
+    <Content Include="Resources\Images\Ext\docx.gif" />
+    <Content Include="Resources\Images\Ext\dwg.gif" />
+    <Content Include="Resources\Images\Ext\exe.gif" />
+    <Content Include="Resources\Images\Ext\gif.gif" />
+    <Content Include="Resources\Images\Ext\htm.gif" />
+    <Content Include="Resources\Images\Ext\html.gif" />
+    <Content Include="Resources\Images\Ext\hwp.gif" />
+    <Content Include="Resources\Images\Ext\jpeg.gif" />
+    <Content Include="Resources\Images\Ext\jpg.gif" />
+    <Content Include="Resources\Images\Ext\mdb.gif" />
+    <Content Include="Resources\Images\Ext\mpeg.gif" />
+    <Content Include="Resources\Images\Ext\mpg.gif" />
+    <Content Include="Resources\Images\Ext\pdf.gif" />
+    <Content Include="Resources\Images\Ext\png.gif" />
+    <Content Include="Resources\Images\Ext\ppt.gif" />
+    <Content Include="Resources\Images\Ext\pptx.gif" />
+    <Content Include="Resources\Images\Ext\rar.gif" />
+    <Content Include="Resources\Images\Ext\reg.gif" />
+    <Content Include="Resources\Images\Ext\sound.gif" />
+    <Content Include="Resources\Images\Ext\txt.gif" />
+    <Content Include="Resources\Images\Ext\wmv.gif" />
+    <Content Include="Resources\Images\Ext\xls.gif" />
+    <Content Include="Resources\Images\Ext\xlsx.gif" />
+    <Content Include="Resources\Images\Ext\zip.gif" />
+    <Content Include="Resources\Images\Login\login_bg.jpg" />
+    <Content Include="Resources\Images\Login\login_bt.png" />
+    <Content Include="Resources\Images\Login\login_bx_bg.png" />
+    <Content Include="Resources\Images\Login\login_bx_title.png" />
+    <Content Include="Resources\Images\Login\login_copyright.gif" />
+    <Content Include="Resources\Images\Login\login_icon_01.png" />
+    <Content Include="Resources\Images\Login\login_icon_02.png" />
+    <Content Include="Resources\Images\Login\login_logo.png" />
+    <Content Include="Resources\Images\Login\login_top_bg.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\bin_title_bg.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\bl_black.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\bl_green.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\bl_red.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\bl_white.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_close.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_CLR.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_clr2.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_CLRALL.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_manage.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_manage_01.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_next.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_pre.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_refresh.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_zoom.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\btn_닫기.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\detail_bg.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\logo.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\magnifier.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\Main%28실사%29_수정.jpg" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\table_th_bg.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tab_bg.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tab_bg_off.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tab_bg_on.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank100_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank100_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank100_03.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank100_04.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank101_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank101_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank101_03.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank101_04.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank102_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank102_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank102_03.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank102_04.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank103_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank103_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank103_03.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank103_04.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank200D_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank200D_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank200T_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank200T_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank200U_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank200U_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank201D_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank201D_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank201R_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank201R_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank201T_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank201T_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank202D_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank202D_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank202T_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank202T_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank500_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank500_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank500_03.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank600_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank600_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank700_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank700_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank701_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank701_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank702_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank702_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank703_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank703_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank800_01.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\tank800_02.png" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\title_bg.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\title_bg2.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\top_bg.jpg" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\상단박스_bg_01.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\상단박스_bg_02.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\상단박스_bg_03.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\상단박스_bg_04.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\하단박스_bg_01.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\확대_title_bg.gif" />
+    <Content Include="Resources\Images\Monitoring\SILOBIN\확대박스_bg_01.gif" />
+    <Content Include="Resources\Report\ActiveReports.FlashViewer.Resources.swf" />
+    <Content Include="Resources\Report\ActiveReports.FlashViewer.swf" />
+    <Content Include="Resources\Report\SCHEDULE.aspx" />
+    <Content Include="Resources\Report\SiloBinCargill.aspx" />
+    <Content Include="Resources\Report\SiloBinSHipDoc.aspx" />
+    <Content Include="Resources\Scripts\Common.js" />
+    <Content Include="Resources\Scripts\jquery-ui.min.js" />
+    <Content Include="Resources\Scripts\jquery.min.js" />
+    <Content Include="Resources\Scripts\showModalDialog.js" />
+    <Content Include="Resources\Scripts\showModalDialogCallee.js" />
+    <Content Include="Resources\Styles\Common.css" />
+    <Content Include="Resources\Styles\ext-all.css" />
+    <Content Include="Resources\Styles\FontStyle.css" />
+    <Content Include="Resources\Styles\Login.css" />
+    <Content Include="Resources\Styles\SiloBin.css" />
+    <Content Include="Resources\Xslt\Excel.xslt" />
+    <Content Include="SiloBin\BinCodeListPopup.aspx" />
+    <Content Include="SiloBin\CodeHelpBinNo.aspx" />
+    <Content Include="SiloBin\CodeHelpHangcha.aspx" />
+    <Content Include="LoginRedirect.aspx" />
+    <Content Include="SiloBin\PlantsSiloBinMonitoring.aspx" />
+    <Content Include="SiloBin\SiloBinBoardSpc.aspx" />
+    <Content Include="SiloBin\SiloBinCapa.aspx" />
+    <Content Include="SiloBin\SiloBinCargill.aspx" />
+    <Content Include="SiloBin\SiloBinClean.aspx" />
+    <Content Include="SiloBin\SiloBinGKColor.aspx" />
+    <Content Include="SiloBin\SiloBinManager.aspx" />
+    <Content Include="SiloBin\SiloBinMove.aspx" />
+    <Content Include="SiloBin\SiloBinSchedule.aspx" />
+    <Content Include="SiloBin\SiloBinSHipDoc.aspx" />
+    <Content Include="SiloBin\SiloBinStatus.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Library\SvcAppDocSearch.cs" />
+    <Compile Include="Library\Svcdominoadmin.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Master\Tab.Master.cs">
+      <DependentUpon>Tab.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Master\Tab.Master.designer.cs">
+      <DependentUpon>Tab.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Report\SCHEDULE.aspx.cs">
+      <DependentUpon>SCHEDULE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Report\SCHEDULE.aspx.designer.cs">
+      <DependentUpon>SCHEDULE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Report\SiloBinCargill.aspx.cs">
+      <DependentUpon>SiloBinCargill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Report\SiloBinCargill.aspx.designer.cs">
+      <DependentUpon>SiloBinCargill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Report\SiloBinSHipDoc.aspx.cs">
+      <DependentUpon>SiloBinSHipDoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Report\SiloBinSHipDoc.aspx.designer.cs">
+      <DependentUpon>SiloBinSHipDoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\BinCodeListPopup.aspx.cs">
+      <DependentUpon>BinCodeListPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\BinCodeListPopup.aspx.designer.cs">
+      <DependentUpon>BinCodeListPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\CodeHelpBinNo.aspx.cs">
+      <DependentUpon>CodeHelpBinNo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\CodeHelpBinNo.aspx.designer.cs">
+      <DependentUpon>CodeHelpBinNo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\CodeHelpHangcha.aspx.cs">
+      <DependentUpon>CodeHelpHangcha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\CodeHelpHangcha.aspx.designer.cs">
+      <DependentUpon>CodeHelpHangcha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginRedirect.aspx.cs">
+      <DependentUpon>LoginRedirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginRedirect.aspx.designer.cs">
+      <DependentUpon>LoginRedirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\PlantsSiloBinMonitoring.aspx.cs">
+      <DependentUpon>PlantsSiloBinMonitoring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\PlantsSiloBinMonitoring.aspx.designer.cs">
+      <DependentUpon>PlantsSiloBinMonitoring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinBoardSpc.aspx.cs">
+      <DependentUpon>SiloBinBoardSpc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinBoardSpc.aspx.designer.cs">
+      <DependentUpon>SiloBinBoardSpc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinCapa.aspx.cs">
+      <DependentUpon>SiloBinCapa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinCapa.aspx.designer.cs">
+      <DependentUpon>SiloBinCapa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinCargill.aspx.cs">
+      <DependentUpon>SiloBinCargill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinCargill.aspx.designer.cs">
+      <DependentUpon>SiloBinCargill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinClean.aspx.cs">
+      <DependentUpon>SiloBinClean.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinClean.aspx.designer.cs">
+      <DependentUpon>SiloBinClean.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinGKColor.aspx.cs">
+      <DependentUpon>SiloBinGKColor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinGKColor.aspx.designer.cs">
+      <DependentUpon>SiloBinGKColor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinManager.aspx.cs">
+      <DependentUpon>SiloBinManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinManager.aspx.designer.cs">
+      <DependentUpon>SiloBinManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinMove.aspx.cs">
+      <DependentUpon>SiloBinMove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinMove.aspx.designer.cs">
+      <DependentUpon>SiloBinMove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinSchedule.aspx.cs">
+      <DependentUpon>SiloBinSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinSchedule.aspx.designer.cs">
+      <DependentUpon>SiloBinSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinSHipDoc.aspx.cs">
+      <DependentUpon>SiloBinSHipDoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinSHipDoc.aspx.designer.cs">
+      <DependentUpon>SiloBinSHipDoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinStatus.aspx.cs">
+      <DependentUpon>SiloBinStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiloBin\SiloBinStatus.aspx.designer.cs">
+      <DependentUpon>SiloBinStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsAppDocSearch\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsdominoadmin\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TYPSM.Report\TYPSM.Report.csproj">
+      <Project>{4433CA83-CD5E-463F-BA8A-1F57206AEC3A}</Project>
+      <Name>TYPSM.Report</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\Font\Daum_Regular.eot" />
+    <Content Include="Resources\Font\Daum_Regular.ttf" />
+    <Content Include="Resources\Font\Daum_Regular.woff" />
+    <Content Include="Resources\Font\Daum_SemiBold.eot" />
+    <Content Include="Resources\Font\Daum_SemiBold.ttf" />
+    <Content Include="Resources\Font\Daum_SemiBold.woff" />
+    <Content Include="Resources\Font\NanumGothic.eot" />
+    <Content Include="Resources\Font\NanumGothic.otf" />
+    <Content Include="Resources\Font\NanumGothic.ttf" />
+    <Content Include="Resources\Font\NanumGothic.woff" />
+    <Content Include="Resources\Font\NanumGothicBold.eot" />
+    <Content Include="Resources\Font\NanumGothicBold.ttf" />
+    <Content Include="Resources\Master\Tab.Master" />
+    <None Include="Web References\wsAppDocSearch\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wsAppDocSearch\wsAppDocSearch.wsdl" />
+    <None Include="Web References\wsdominoadmin\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wsdominoadmin\wsdominoadmin.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://gw.taeyoung.co.kr/pilot/WebService.nsf/wsAppDocSearch%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsAppDocSearch\</RelPath>
+      <UpdateFromURL>http://gw.taeyoung.co.kr/pilot/WebService.nsf/wsAppDocSearch%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TG_BIN_wsAppDocSearch_wsAppDocSearchElement</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://gw.taeyoung.co.kr/pilot/webservice.nsf/wsdominoadmin%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsdominoadmin\</RelPath>
+      <UpdateFromURL>http://gw.taeyoung.co.kr/pilot/webservice.nsf/wsdominoadmin%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TG_BIN_wsdominoadmin_wsDominoAdminElement</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4543</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

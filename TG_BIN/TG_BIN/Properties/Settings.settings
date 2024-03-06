@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TG_BIN.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TG_BIN_wsAppDocSearch_wsAppDocSearchElement" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://gw.taeyoung.co.kr:80/pilot/WebService.nsf/wsAppDocSearch?OpenWebService</Value>
+    </Setting>
+    <Setting Name="TG_BIN_wsdominoadmin_wsDominoAdminElement" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://gw.taeyoung.co.kr:80/pilot/webservice.nsf/wsdominoadmin?OpenWebService</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

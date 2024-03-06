@@ -1,0 +1,57 @@
+﻿@charset "utf-8"; 
+/* JIS Web Standardization Team (http://www.jisman.co.kr) 전은경 */
+
+
+html {
+   scrollbar-face-color: #FFFFFF;
+   scrollbar-shadow-color: #cfd4da;
+   scrollbar-highlight-color: #cfd4da;
+   scrollbar-3dlight-color: #FFFFFF;
+   scrollbar-darkshadow-color: #FFFFFF;
+   scrollbar-track-color: #FFFFFF;
+   scrollbar-arrow-color: #aaaaaa;
+}
+
+html, body {width: 100%; height: 100%;}
+
+#print_area {position: relative;}
+
+* {
+   margin: 0px;
+   padding: 0px;
+   font-family: NanumGothicBold, Tahoma, AppleGothic, dotum, Sans-serif; font-size: 12px; color: #363636; line-height: 18px;
+   word-break: keep-all;
+}
+
+table {border-collapse: collapse;}
+img, button, fieldset, iframe {border: none;}
+fieldset {_display: inline;}
+hr, button img {display: none;}
+img, input, select {vertical-align: middle;}
+
+ul, ul li {list-style: none;}
+ol, ol li {list-style: none;}
+
+a:active {text-decoration: none;} 
+a:link {text-decoration: none;} 
+a:visited {text-decoration: none;}
+a:hover {color: #2973c5; text-decoration: none;}
+a {cursor: pointer;}
+
+address {font-style: normal; color: #646464;}
+
+label {font-size: 11px;}
+
+input {
+	background: #FFFFFF; 
+	width: 100%;
+}
+
+textarea {background: #FFFFFF; border: 1px solid #b4b4b4; width: 100%; overflow: auto;}
+select {background: #FFFFFF; border: 1px solid #b6b6b6; height: 22px;}
+span input {background: none; border: none; width: 13px; margin-right: 3px; .margin-top: 0px;}
+
+html:first-child select {padding-right: 6px; height: 20px;} /* Opera 9 & Below Fix */ 
+option {padding-right: 6px;} /* Firefox Fix */
+legend {position: absolute; top: 0; left: 0; width: 0; height: 0; overflow: hidden; visibility: hidden; font-size: 0; line-height: 0;} /* Screen Reader */ 
+

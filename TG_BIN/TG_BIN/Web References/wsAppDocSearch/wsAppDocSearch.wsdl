@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="urn:DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="urn:DefaultNamespace" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="SEARCHEDMSDOCResponse">
+    <wsdl:part name="SEARCHEDMSDOCReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GETDEFAULTDBPATHRequest">
+    <wsdl:part name="EMPNO" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GETDEFAULTDBPATHResponse">
+    <wsdl:part name="GETDEFAULTDBPATHReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GETFORMLISTResponse">
+    <wsdl:part name="GETFORMLISTReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GETFORMLISTRequest">
+    <wsdl:part name="COMPANY" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GETEDMSLISTResponse">
+    <wsdl:part name="GETEDMSLISTReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="SEARCHEDMSDOCRequest">
+    <wsdl:part name="DBPATH" type="xsd:string" />
+    <wsdl:part name="SEARCHFORM" type="xsd:string" />
+    <wsdl:part name="SEARCHSTRING" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GETEDMSLISTRequest">
+    <wsdl:part name="COMPANY" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="wsAppDocSearchPortType">
+    <wsdl:operation name="GETDEFAULTDBPATH" parameterOrder="EMPNO">
+      <wsdl:input name="GETDEFAULTDBPATHRequest" message="impl:GETDEFAULTDBPATHRequest" />
+      <wsdl:output name="GETDEFAULTDBPATHResponse" message="impl:GETDEFAULTDBPATHResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GETFORMLIST" parameterOrder="COMPANY">
+      <wsdl:input name="GETFORMLISTRequest" message="impl:GETFORMLISTRequest" />
+      <wsdl:output name="GETFORMLISTResponse" message="impl:GETFORMLISTResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GETEDMSLIST" parameterOrder="COMPANY">
+      <wsdl:input name="GETEDMSLISTRequest" message="impl:GETEDMSLISTRequest" />
+      <wsdl:output name="GETEDMSLISTResponse" message="impl:GETEDMSLISTResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SEARCHEDMSDOC" parameterOrder="DBPATH SEARCHFORM SEARCHSTRING">
+      <wsdl:input name="SEARCHEDMSDOCRequest" message="impl:SEARCHEDMSDOCRequest" />
+      <wsdl:output name="SEARCHEDMSDOCResponse" message="impl:SEARCHEDMSDOCResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsAppDocSearchPortSoapBinding" type="impl:wsAppDocSearchPortType">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="GETDEFAULTDBPATH">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GETDEFAULTDBPATHRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GETDEFAULTDBPATHResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETFORMLIST">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GETFORMLISTRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GETFORMLISTResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETEDMSLIST">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GETEDMSLISTRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GETEDMSLISTResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SEARCHEDMSDOC">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="SEARCHEDMSDOCRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="SEARCHEDMSDOCResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:DefaultNamespace" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsAppDocSearchElement">
+    <wsdl:port name="wsAppDocSearchPort" binding="impl:wsAppDocSearchPortSoapBinding">
+      <wsdlsoap:address location="http://gw.taeyoung.co.kr:80/pilot/WebService.nsf/wsAppDocSearch?OpenWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

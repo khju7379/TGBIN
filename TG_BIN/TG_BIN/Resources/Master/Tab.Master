@@ -1,0 +1,513 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Tab.master.cs" Inherits="TG_BIN.Resources.Master.Tab" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8, IE=EmulateIE9"/>
+    
+    <%--<title></title>--%>
+    <link rel="Stylesheet" href="/Resources/Styles/Common.css" />    
+    
+   <%-- <link rel="Stylesheet" href="/Resources/Styles/FontStyle.css" />--%>
+
+    
+
+    <script type="text/javascript" src='/Resources/Scripts/jquery.min.js'></script>
+    <script type="text/javascript" src='/Resources/Scripts/jquery-ui.min.js'></script> 
+    <script type="text/javascript" src='/Resources/Scripts/Common.js'></script>
+
+    <script type="text/javascript" src='/Resources/Scripts/showModalDialog.js'></script>
+    <script type="text/javascript" src='/Resources/Scripts/showModalDialogCallee.js'></script>
+
+    <ext:XScript runat="server">
+        
+        <script type="text/javascript">
+                
+            /********************************************************************************************
+            *   작성목적    : Backspace 방지
+            *                 
+            ********************************************************************************************/
+            document.onkeydown = function () {
+                if (event.srcElement.type == "text" || event.srcElement.type == "textarea") {
+                    if (event.srcElement.readOnly == true) {
+                        if (event.keyCode == 8) {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            /********************************************************************************************
+            *   작성목적    : 그리드 폰트 색상 Format 변환
+            *   파라미터    : value : 값
+            *                 style : 스타일
+            ********************************************************************************************/
+            function FormatGridCellFont(value, style) {
+                return "<span style='" + style + "'> " + value + "</span>";
+            }
+
+            /********************************************************************************************
+            *   작성목적    : yyyy-MM-dd(ddd)형태로 Format 변환
+            *   파라미터    : date : 날짜
+            ********************************************************************************************/
+            function FormatAddDayOfWeek(date, format) {
+                var rtnValue = Ext.util.Format.date(date, format);
+
+                rtnValue += "(";
+                switch (date.getDay()) {
+                    case 0:
+                        rtnValue += "<span style='color:Red;'>일</span>";
+                        break;
+                    case 1:
+                        rtnValue += "<span style='color:Black;'>월</span>";
+                        break;
+                    case 2:
+                        rtnValue += "<span style='color:Black;'>화</span>";
+                        break;
+                    case 3:
+                        rtnValue += "<span style='color:Black;'>수</span>";
+                        break;
+                    case 4:
+                        rtnValue += "<span style='color:Black;'>목</span>";
+                        break;
+                    case 5:
+                        rtnValue += "<span style='color:Black;'>금</span>";
+                        break;
+                    case 6:
+                        rtnValue += "<span style='color:Blue;'>토</span>";
+                        break;
+                }
+                rtnValue += ")";
+
+                return rtnValue;
+            }
+
+            /********************************************************************************************
+            *   작성목적    : 'value 외 (count - 1) 건' 의 형태로 변환
+            *   파라미터    : value : 값
+            *                 count : 수
+            ********************************************************************************************/
+            function FormatEtcCounter(value, count) {
+                var rtnValue = value;
+
+                if (count > 1) {
+                    rtnValue += " 외 " + (count - 1) + "건";
+                }
+
+                return rtnValue;
+            }
+
+            /********************************************************************************************
+            *   작성목적    : 값이 0인경우 표시하지 않음
+            *   파라미터    : value : 값
+            ********************************************************************************************/
+            function FormatNoZero(value, format) {
+                var rtnValue = Ext.util.Format.number(value, format);
+
+                if (value == 0 || value == "0") {
+                    rtnValue = " ";
+                }
+
+                return rtnValue;
+            }
+
+            /********************************************************************************************
+            *   작성목적    : 값이 0인경우 표시하지 않음
+            *   파라미터    : value : 값
+            ********************************************************************************************/
+            function FormatZero(value, format) {
+                var rtnValue = Ext.util.Format.number(value, format);
+
+                return rtnValue;
+            }
+
+            /********************************************************************************************
+            *   작성목적    : Date 객체의 날짜를 문자형으로 변환
+            *   파라미터    : date : Date 객체
+            *                 seperator : 구분자
+            ********************************************************************************************/
+            function GetDateString(date, seperator) {
+                var rtnValue = "";
+                var tmpSeperator = "";
+                if (seperator != null && seperator != undefined) {
+                    tmpSeperator = seperator;
+                }
+                if (date != null) {
+                    rtnValue = date.getFullYear() +
+                    tmpSeperator +
+                    PadLeft((date.getMonth() + 1), 2, "0") +
+                    tmpSeperator +
+                    PadLeft(date.getDate(), 2, "0");
+                }
+
+                return rtnValue;
+            }
+
+            /********************************************************************************************
+            *   작성목적    : Date 객체의 시간을 문자형으로 변환
+            *   파라미터    : date : Date 객체
+            *                 seperator : 구분자
+            ********************************************************************************************/
+            function GetTimeString(date, seperator) {
+                var rtnValue = "";
+                var tmpSeperator = "";
+                if (seperator != null && seperator != undefined) {
+                    tmpSeperator = seperator;
+                }
+                rtnValue = PadLeft(date.getHours(), 2, "0") +
+                    tmpSeperator +
+                    PadLeft(date.getMinutes(), 2, "0") +
+                    tmpSeperator +
+                    PadLeft(date.getSeconds(), 2, "0");
+
+                return rtnValue;
+            }
+
+            /********************************************************************************************
+            *   작성목적    : value가 length만큼 되도록 왼쪽을 char로 채워 넣음
+            *   파라미터    : value : 값
+            *                 length : 길이
+            *                 char : 문자
+            ********************************************************************************************/
+            function PadLeft(value, length, char) {
+                var rtnValue = "";
+                var strValue = value + "";
+
+                for (var i = 0; i < length - strValue.length; i++) {
+                    rtnValue += char;
+                }
+                rtnValue += strValue;
+
+                return rtnValue;
+            }
+
+            /********************************************************************************************
+            *   작성목적    : 해당 name의 쿼리 스트링 값을 반환
+            *   파라미터    : name : 파라미터
+            ********************************************************************************************/
+            function GetParameter(name) {
+                var rtnval = '';
+                var nowAddress = unescape(location.href);
+                var parameters = (nowAddress.slice(nowAddress.indexOf('?') + 1, nowAddress.length)).split('&');
+
+                for (var i = 0; i < parameters.length; i++) {
+                    var varName = parameters[i].split('=')[0];
+                    if (varName.toUpperCase() == name.toUpperCase()) {
+                        rtnval = parameters[i].split('=')[1];
+                        break;
+                    }
+                }
+
+                return rtnval;
+            }
+
+            /********************************************************************************************
+            *   작성목적    : 날짜에 월을 더함
+            *   파라미터    : date : 날짜
+            *                 month : 월
+            ********************************************************************************************/
+            function AddMonth(date, month) {
+                var rtnValue = new Date();
+                var newYear = date.getFullYear();
+                var newMonth = date.getMonth();
+                var newDay = date.getDate();
+
+                newMonth += month;
+                rtnValue.setFullYear(newYear, newMonth, newDay);
+
+                return rtnValue;
+            }
+
+            /********************************************************************************************
+            *   작성목적    : 날짜에 일을 더함
+            *   파라미터    : date : 날짜
+            *                 day : 일
+            ********************************************************************************************/
+            function AddDate(date, day) {
+                var rtnValue = new Date();
+                var newYear = date.getFullYear();
+                var newMonth = date.getMonth();
+                var newDay = date.getDate();
+
+                newDay += day;
+                rtnValue.setFullYear(newYear, newMonth, newDay);
+
+                return rtnValue;
+            }
+
+            /********************************************************************************************
+            *   작성목적    : 날짜 함수
+            *   수정내역    :
+            ********************************************************************************************/
+            function DateCheck(thisone) {
+                var keyCode = window.event.keyCode;
+
+                var obj = thisone.value;
+
+                if (keyCode == 13) {
+                    if (obj != undefined) {
+                        if (obj.length == 8) {
+                            var yyyy = obj.substring(0, 4);
+                            var mm = obj.substring(4, 6);
+                            var dd = obj.substring(6, 8);
+
+                            var date = yyyy + "-" + mm + "-" + dd;
+
+                            thisone.value = date;
+
+                            return date;
+                        }
+                        else {
+                            return obj;
+                        }
+                    }
+                }
+                else {
+                    return obj;
+                }
+            };
+
+            function Get_Date(thisone) {
+                var obj = thisone.value;
+
+                if (obj != undefined) {
+                    if (obj.length == 8) {
+                        var yyyy = obj.substring(0, 4);
+                        var mm = obj.substring(4, 6);
+                        var dd = obj.substring(6, 8);
+
+                        var date = yyyy + "-" + mm + "-" + dd;
+
+                        thisone.value = date;
+
+                        return date;
+                    }
+                    else {
+                        return obj;
+                    }
+                }
+                else {
+                    return obj;
+                }
+            };
+
+            /********************************************************************************************
+            *   작성목적    : 콤보박스의 선택 아이템을 인덱스로 설정
+            *   파라미터    : comboBox : 콤보박스
+            *                 index : 아이템의 인덱스
+            ********************************************************************************************/
+            function SelectComboBoxByIndex(comboBox, index) {
+                comboBox.select(comboBox.store.data.get(index));
+            }
+
+            /********************************************************************************************
+            *   작성목적    : 팝업 띄우기
+            *   파라미터    : url : URL
+            *                 width : 팝업 Width
+            *                 height : 팝업 Height
+            ********************************************************************************************/
+            function OpenPopup(url, width, height) {
+                var popup = window.open(
+                    url,
+                    "_blank",
+                    "toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=" + width + ",height=" + height
+                    );
+                popup.focus();
+            }
+
+
+
+            /********************************************************************************************
+            *   작성목적    : 팝업 띄우기
+            *   파라미터    : url : URL
+            *                 width : 팝업 Width
+            *                 height : 팝업 Height
+            ********************************************************************************************/
+            function OpenNamePopup(url,target, width, height) {
+                var popup = window.open(
+                    url,
+                    target,
+                    "toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=" + width + ",height=" + height
+                    );
+                popup.focus();
+            }
+            /********************************************************************************************
+            *   작성목적    : 로그인 페이지로 이동
+            ********************************************************************************************/
+            function GoToLogin() {
+
+               
+                if (parent != null && parent.GoToLogin != undefined) {
+                    parent.GoToLogin();
+                }
+                else if (opener != null && opener.GoToLogin != undefined) {
+                    window.close();
+                    opener.GoToLogin();
+                }
+                else {
+                    location.replace("/LoginRedirect.aspx");
+                }
+            }
+
+            /********************************************************************************************
+            *   작성목적    : 대문자로 변경
+            ********************************************************************************************/
+            function Get_UpperCase(thisone) {
+
+                if (thisone != "" && thisone != null && thisone.value != undefined) {
+                    return thisone.value.toUpperCase();
+                }
+            }
+
+            function Current_Date() {
+                var now = new Date();
+                var year = now.getFullYear();
+                var mon = (now.getMonth() + 1) > 9 ? '' + (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
+                var day = now.getDate() > 9 ? '' + now.getDate() : '0' + now.getDate();
+
+                return year + '-' + mon + '-' + day;
+            }
+
+            function Current_MonthDate() {
+                var now = new Date();
+                var year = now.getFullYear();
+                var mon = (now.getMonth() + 1) > 9 ? '' + (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
+                var day = now.getDate() > 9 ? '' + now.getDate() : '0' + now.getDate();
+
+                return year + '-' + mon;
+            }
+
+            // 숫자 포맷 변경 함수
+            function commify(n) {
+                var reg = /(^[+-]?\d+)(\d{3})/;
+                n += '';
+                while (reg.test(n))
+                    n = n.replace(reg, '$1' + ',' + '$2');
+
+                return n;
+            }
+
+            function GetNDate(yyyy, mm, dd) {
+                if (typeof (yyyy) == "string") {
+                    yyyy = parseInt(yyyy);
+                }
+
+                if (typeof (mm) == "string") {
+                    mm = parseInt(mm, 10) - 1;
+                    mm = mm.toString().length == 1 ? "0" + mm.toString() : mm.toString();
+                }
+
+                if (typeof (dd) == "string") {
+                    dd = dd.toString().length == 1 ? "0" + dd.toString() : dd.toString();
+                }
+
+                var NDate = new Date(yyyy, mm, dd);
+                return NDate;
+            }
+
+            // 다음날 계산
+            function GetTomDate(NDate) {
+                var CurrDate = new Date(Date.parse(NDate) + 1 * 1000 * 60 * 60 * 24); // 내일
+
+                var CurrYear = CurrDate.getFullYear();
+                var CurrMonth = (100 + (CurrDate.getMonth() + 1)).toString().substr(1);
+                var CurrDate = (100 + CurrDate.getDate()).toString().substr(1);
+
+                return CurrYear + "-" + CurrMonth + "-" + CurrDate;
+            }
+
+            // 이전날 계산
+            function GetPreDate(NDate) {
+                var CurrDate = new Date(Date.parse(NDate) - 1 * 1000 * 60 * 60 * 24); // 어제    
+
+                var CurrYear = CurrDate.getFullYear();
+                var CurrMonth = (100 + (CurrDate.getMonth() + 1)).toString().substr(1);
+                var CurrDate = (100 + CurrDate.getDate()).toString().substr(1);
+
+                return CurrYear + "-" + CurrMonth + "-" + CurrDate;
+            }
+            //다음달
+            function GetNextMonthDate(NDate) {
+                var CurrDate = new Date(Date.parse(NDate) + 30 * 1000 * 60 * 60 * 24); 
+
+                var CurrYear = CurrDate.getFullYear();
+                var CurrMonth = (100 + (CurrDate.getMonth() + 1)).toString().substr(1);
+                var CurrDate = (100 + CurrDate.getDate()).toString().substr(1);
+
+                return CurrYear + "-" + CurrMonth + "-" + CurrDate;
+            }
+
+            // 이전달
+            function GetPreMonthDate(NDate) {
+                var CurrDate = new Date(Date.parse(NDate) - 30 * 1000 * 60 * 60 * 24); 
+
+                var CurrYear = CurrDate.getFullYear();
+                var CurrMonth = (100 + (CurrDate.getMonth() + 1)).toString().substr(1);
+                var CurrDate = (100 + CurrDate.getDate()).toString().substr(1);
+
+                return CurrYear + "-" + CurrMonth + "-" + CurrDate;
+            }
+
+            function IsNumber(str) {
+
+                var obj = str;
+                var charvalue = 0;
+                var charstr = '';
+
+                for (var i = 0; i < obj.length; i++) {
+                    charvalue = obj.charCodeAt(i);
+
+                    if (charvalue >= 48 && charvalue <= 57) {
+                        charstr = charstr + obj.charAt(i);
+                    }
+                }
+
+                return charstr;
+            }
+
+            //0,000.000 -> 0000.000 포맷 변경
+            function comma_to_number(currency) {
+
+                try {
+                    var num = currency.replace(/,/gi, "");
+                    return num;
+                }
+                catch (exc) {
+                    return '';
+                }
+            }
+
+            function SetOpenerCall() {
+                
+                try {
+                    if (parent.opener.document.getElementById('check') != null && parent.opener.document.getElementById('check') != undefined) {
+                        parent.opener.DbDataReSet();
+                    }
+                }
+                catch (exc) {
+                    return;
+                }
+            }            
+
+
+
+        </script>
+    </ext:XScript>
+
+    <asp:ContentPlaceHolder ID="headScripts" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   <form id="form1" runat="server">
+    <div>
+        <ext:ResourceManager ID="rsmMain" runat="server" />
+
+        <asp:ContentPlaceHolder ID="bodyContents" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+   </form>
+</body>
+</html>
