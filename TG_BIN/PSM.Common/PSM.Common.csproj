@@ -84,6 +84,9 @@
     <Content Include="Assembly\Transformer.NET.dll" />
     <Content Include="Assembly\Transformer.NET.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assembly\사업계획 업무분석.xlsx" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
